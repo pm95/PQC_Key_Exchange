@@ -7,7 +7,7 @@ int main()
     printf("\n\n");
 
     // ***** ALICE PRIVATE DOMAIN *****
-    double a = 15933;
+    double a = 15933430;
 
     // ***** BOB PRIVATE DOMAIN *****
     double b = 15397;

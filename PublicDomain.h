@@ -1,15 +1,6 @@
 #include <math.h>
 #include <stdio.h>
 
-// recursive form of modular exponentiation
-double mod_pow_recursive(double base, double exp, double n)
-{
-    // base case
-    if (exp == 1)
-        return fmod(pow(base, 1), n);
-    return fmod(fmod(mod_pow_recursive(base, exp - 1, n), n) * fmod(pow(base, 1), n), n);
-}
-
 double mod_pow(double base, double exp, double n)
 {
     double result = 1;
@@ -26,4 +17,4 @@ double mod_pow(double base, double exp, double n)
 const double n = 19908990;
 
 // g seed
-const double g = 1271;
+const double g = 121;
