@@ -23,7 +23,7 @@ double mod_pow(double base, double exp, double n)
 }
 
 // n seed
-const double n = 1993;
+const double n = 19908990;
 
 // g seed
-const double g = 127;
+const double g = 1271;
