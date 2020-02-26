@@ -15,3 +15,4 @@ n = 1993
 
 
 print(mod_pow(a, k, n))
+print(pow(a, k, n))
