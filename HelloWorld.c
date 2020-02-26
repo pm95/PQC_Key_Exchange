@@ -7,27 +7,27 @@ int main()
     printf("\n\n");
 
     // ***** ALICE PRIVATE DOMAIN *****
-    double a = 15933430;
+    int a = 1523;
 
     // ***** BOB PRIVATE DOMAIN *****
-    double b = 15397;
+    int b = 1597;
 
-    printf("n: %f\ng: %f\nAlice private key, a: %f\nBob private key, b: %f\n\n", n, g, a, b);
+    printf("n: %d\ng: %d\n\nAlice private key, a: %d\nBob private key, b: %d\n\n", n, g, a, b);
 
     // pubic keys from alice and bob
-    double A = mod_pow(g, a, n);
-    double B = mod_pow(g, b, n);
+    int A = mod_pow(g, a, n);
+    int B = mod_pow(g, b, n);
 
-    printf("Alice public key: %f\nBob public key: %f\n\n", A, B);
+    printf("Alice public key: %d\nBob public key: %d\n\n", A, B);
 
     // // shared secret computation for alice and bob
     // ***** ALICE PRIVATE DOMAIN *****
-    double a_ss = mod_pow(B, a, n);
+    int a_ss = mod_pow(B, a, n);
 
     // ***** BOB PRIVATE DOMAIN *****
-    double b_ss = mod_pow(A, b, n);
+    int b_ss = mod_pow(A, b, n);
 
-    printf("Alice SS: %f\nBob SS: %f\n\n", a_ss, b_ss);
+    printf("Alice SS: %d\nBob SS: %d\n\n", a_ss, b_ss);
 
     printf("\n\n");
     return 0;

@@ -1,20 +1,18 @@
 #include <math.h>
 #include <stdio.h>
 
-double mod_pow(double base, double exp, double n)
+int mod_pow(int base, int exp, int n)
 {
-    double result = 1;
+    int result = 1;
 
-    for (double i = 1; i <= exp; i++)
-    {
+    for (int i = 1; i <= exp; i++)
         result = fmod(result * fmod(base, n), n);
-    }
 
-    return fmod(result, n);
+    return result;
 }
 
 // n seed
-const double n = 19908990;
+const int n = 1993;
 
 // g seed
-const double g = 121;
+const int g = 127;
