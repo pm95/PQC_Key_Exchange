@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
+#define n 1993
+#define g 127
+#define MAX 80
+#define PORT 8080
+
 struct Person
 {
     //private variable, do not peak
@@ -20,6 +25,3 @@ int mod_pow(int base, int exp, int n)
         result = fmod(result * fmod(base, n), n);
     return result;
 }
-
-#define n 1993
-#define g 127
