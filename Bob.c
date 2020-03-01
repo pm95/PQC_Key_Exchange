@@ -19,14 +19,15 @@ struct Person bob;
 // Function designed for chat between client and server.
 void chat_with_client(int sockfd)
 {
-    char buff[MAX];
     int alice_public_key;
+
+    char buff[MAX];
     int N;
 
     // zero out the buffer
     memset(buff, '\0', MAX);
 
-    // read the message from client and copy it in buffer
+    // read the message from Alice and copy it in buffer
     read(sockfd, buff, sizeof(buff));
 
     // Convert value for Alice's public key
