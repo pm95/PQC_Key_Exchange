@@ -11,11 +11,13 @@
 
 #define SA struct sockaddr
 
-void func(int sockfd)
+void chat_with_server(int sockfd)
 {
+    // charactter buffer for message string
     char buff[MAX];
     int N;
-    for (;;)
+
+    while (1)
     {
         bzero(buff, sizeof(buff));
         printf("Enter the string : ");
@@ -36,10 +38,10 @@ void func(int sockfd)
 
 int main()
 {
-    printf("Hello from Alice");
-
     int sockfd, connfd;
     struct sockaddr_in servaddr, cli;
+
+    printf("Hello from Alice");
 
     // socket create and varification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -67,7 +69,7 @@ int main()
         printf("connected to the server..\n");
 
     // function for chat
-    func(sockfd);
+    chat_with_server(sockfd);
 
     // close the socket
     close(sockfd);

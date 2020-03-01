@@ -15,11 +15,12 @@
 #define SA struct sockaddr
 
 // Function designed for chat between client and server.
-void func(int sockfd)
+void chat_with_client(int sockfd)
 {
     char buff[MAX];
     int N;
-    // infinite loop for chat
+
+    // start infinite loop to communicate with client
     for (;;)
     {
         bzero(buff, MAX);
@@ -49,7 +50,7 @@ void func(int sockfd)
 // Driver function
 int main()
 {
-    printf("Hello from Bob");
+    printf("Hello from Bob\n");
 
     int sockfd, connfd, len;
     struct sockaddr_in servaddr, cli;
@@ -100,7 +101,7 @@ int main()
         printf("server acccept the client...\n");
 
     // Function for chatting between client and server
-    func(connfd);
+    chat_with_client(connfd);
 
     // After chatting close the socket
     close(sockfd);
