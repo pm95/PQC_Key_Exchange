@@ -13,7 +13,7 @@
 
 struct Person alice;
 
-void chat_with_server(int sockfd)
+void key_exchange_with_bob(int sockfd)
 {
     int bob_public_key;
 
@@ -84,7 +84,7 @@ int main()
         printf("connected to the server..\n");
 
     // function for chat
-    chat_with_server(sockfd);
+    key_exchange_with_bob(sockfd);
 
     // close the socket
     close(sockfd);

@@ -17,7 +17,7 @@
 struct Person bob;
 
 // Function designed for chat between client and server.
-void chat_with_client(int sockfd)
+void key_exchange_with_alice(int sockfd)
 {
     int alice_public_key;
 
@@ -112,7 +112,7 @@ int main()
         printf("server acccept the client...\n");
 
     // Function for chatting between client and server
-    chat_with_client(connfd);
+    key_exchange_with_alice(connfd);
 
     // After chatting close the socket
     close(sockfd);
