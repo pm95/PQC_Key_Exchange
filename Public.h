@@ -25,3 +25,5 @@ int mod_pow(int base, int exp, int N)
         result = fmod(result * fmod(base, N), N);
     return result;
 }
+
+// char a - '0' -> integer value of ascii char

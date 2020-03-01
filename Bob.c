@@ -14,6 +14,9 @@
 
 #define SA struct sockaddr
 
+// Bob's private key
+#define b 1597
+
 // Function designed for chat between client and server.
 void chat_with_client(int sockfd)
 {
@@ -21,16 +24,21 @@ void chat_with_client(int sockfd)
     int N;
 
     // start infinite loop to communicate with client
-    for (;;)
+    while (1)
     {
-        bzero(buff, MAX);
+        // zero out the buffer
+        memset(buff, '\0', MAX);
 
         // read the message from client and copy it in buffer
         read(sockfd, buff, sizeof(buff));
+
         // print buffer which contains the client contents
         printf("From client: %s\t To client : ", buff);
-        bzero(buff, MAX);
+
+        // zero out the buffer
+        memset(buff, '\0', MAX);
         N = 0;
+
         // copy server message in the buffer
         while ((buff[N++] = getchar()) != '\n')
             ;
