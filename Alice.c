@@ -11,11 +11,15 @@
 
 #define SA struct sockaddr
 
-void chat_with_server(int sockfd, int public_key)
+struct Person alice;
+
+void chat_with_server(int sockfd, int private_key)
 {
     // character buffer for message string
     char buff[MAX];
     int N;
+
+    int public_key = mod_exp(g, private_key, n);
 
     while (1)
     {
@@ -23,12 +27,12 @@ void chat_with_server(int sockfd, int public_key)
         memset(buff, '\0', sizeof(buff));
         N = 0;
 
-        printf("Enter the string : ");
-        while ((buff[N++] = getchar()) != '\n')
-            ;
+        printf("Sending Alice's public key ... %d\n", public_key);
+        sprintf(buff, "%d", public_key);
 
         // send message to server
         write(sockfd, buff, sizeof(buff));
+        printf("Sent Alice's public key ... %d\n", public_key);
 
         // zero out the buffer
         memset(buff, '\0', sizeof(buff));
@@ -52,7 +56,7 @@ int main()
 
     printf("Hello from Alice");
     struct Person alice;
-    alice.public_key = 1523;
+    alice.private_key = 1523;
 
     // socket create and varification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -80,7 +84,7 @@ int main()
         printf("connected to the server..\n");
 
     // function for chat
-    chat_with_server(sockfd, alice.public_key);
+    chat_with_server(sockfd, alice.private_key);
 
     // close the socket
     close(sockfd);
