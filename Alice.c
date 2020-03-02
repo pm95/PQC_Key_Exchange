@@ -10,7 +10,7 @@
 
 // key-generation imports
 #include "Public.h"
-#include "./PQCrypto-SIDH/src/P434/P434_api.h"
+#include "../PQCrypto-SIDH/src/P434/P434_api.h"
 
 #define SA struct sockaddr
 
