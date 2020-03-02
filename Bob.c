@@ -28,8 +28,8 @@ void key_exchange_with_alice(int sockfd)
     unsigned char shared_secret[SIDH_BYTES] = {0};
 
     // generate Bob's private key
-    random_mod_order_A_SIDHp434(bob_private_key);
-    int pk_gen_flag = EphemeralKeyGeneration_A_SIDHp434(bob_private_key, bob_public_key);
+    random_mod_order_B_SIDHp434(bob_private_key);
+    int pk_gen_flag = EphemeralKeyGeneration_B_SIDHp434(bob_private_key, bob_public_key);
 
     // read Alice's public key
     read(sockfd, alice_public_key, SIDH_PUBLICKEYBYTES);
@@ -38,7 +38,7 @@ void key_exchange_with_alice(int sockfd)
     write(sockfd, bob_public_key, SIDH_PUBLICKEYBYTES);
 
     // generate shared secret
-    int ss_gen_flag = EphemeralSecretAgreement_B_SIDHp434(bob_private_key, bob_public_key, shared_secret);
+    int ss_gen_flag = EphemeralSecretAgreement_B_SIDHp434(bob_private_key, alice_public_key, shared_secret);
 
     printf("Bob's public key: %s\n", bob_public_key);
     printf("Bob's private key: %s\n", bob_private_key);
@@ -98,8 +98,6 @@ int main()
         printf("server acccept failed...\n");
         exit(0);
     }
-    else
-        printf("server acccept the client...\n");
 
     // Function for chatting between client and server
     key_exchange_with_alice(connfd);
