@@ -55,7 +55,7 @@ int main()
     int sockfd, connfd;
     struct sockaddr_in servaddr, cli;
 
-    printf("Hello from Alice");
+    printf("Hello from Alice\n");
     alice.private_key = 1523;
 
     // socket create and varification
