@@ -11,7 +11,7 @@
 #include <arpa/inet.h>
 
 // key-generation imports
-#include "Public.h"
+#include "ServerConfig.h"
 #include "../PQCrypto-SIDH/src/P434/P434_api.h"
 
 #define SA struct sockaddr
