@@ -1,3 +1,3 @@
 echo "Compiling Bob ... "
 
-gcc Bob.c -lm -o bob
+gcc Bob.c -lm -o bob && ./bob
